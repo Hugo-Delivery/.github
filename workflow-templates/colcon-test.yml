@@ -1,0 +1,17 @@
+name: Test packages
+run-name: Colcon test all packages
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  colcon-test:
+    runs-on: self-hosted
+    container: hugodelivery/ros2:overlay
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        bash -ic "source $ROS_SOURCE && source $NAV_SOURCE && source $HUGO_SOURCE && colcon build && colcon test"
