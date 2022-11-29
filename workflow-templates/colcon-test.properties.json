@@ -1,5 +1,5 @@
 {
     "name": "Test package with colcon",
     "description": "Using the overlay container, test your package with colcon test.",
-    "iconName": "test",
+    "iconName": "test"
 }
