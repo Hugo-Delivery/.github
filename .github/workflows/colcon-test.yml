@@ -17,4 +17,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        bash -ic "source $ROS_SOURCE && source $NAV_SOURCE && source $HUGO_SOURCE && colcon build && colcon test"
+        bash -ic "source $ROS_SOURCE && source $NAV_SOURCE && source $HUGO_SOURCE && colcon build && colcon test --return-code-on-test-failure"
