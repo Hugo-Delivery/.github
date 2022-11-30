@@ -13,8 +13,11 @@ on:
 jobs:
   colcon-test:
     runs-on: self-hosted
-    container: hugodelivery/ros2:overlay
+    container: 
+      image: hugodelivery/ros2:overlay
+      env: 
+        RMW_IMPLEMENTATION: ""
     steps:
     - uses: actions/checkout@v2
     - run: |
-        bash -ic "source $ROS_SOURCE && source $NAV_SOURCE && source $HUGO_SOURCE && colcon build && colcon test --return-code-on-test-failure"
+        bash -ic "source $ROS_SOURCE && source $NAV_SOURCE && source $HUGO_SOURCE && colcon build && colcon test --return-code-on-test-failure --event-handlers console_cohesion+"
