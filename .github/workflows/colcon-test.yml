@@ -9,6 +9,12 @@ on:
     branches:
       - main
   workflow_call:
+    secrets:
+      DOCKERHUB_USERNAME:
+        required: true
+      DOCKERHUB_PASSWORD:
+        required: true
+      
     
 jobs:
   login:
